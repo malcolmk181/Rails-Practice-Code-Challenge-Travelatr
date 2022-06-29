@@ -1,0 +1,16 @@
+<% if flash[:error] %>
+<p style="color: red;"><%= flash[:error] %></p>
+<% end %>
+
+<%= form_with model:@blogger, url: bloggers_path(@blogger), method: "create" do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br />
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+    <br />
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <br />
+    <%= f.submit %>
+<% end %>

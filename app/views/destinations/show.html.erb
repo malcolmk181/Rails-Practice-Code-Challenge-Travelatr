@@ -1,0 +1,17 @@
+<h2><%= @destination.name %></h2>
+<p>Country: <%= @destination.country %></p>
+
+<% if @recent_five.count > 0 %>
+    <h3>Most recent posts:</h3>
+    <ul>
+    <% @recent_five.each do |p| %>
+        <li><%= link_to p.title, post_path(p) %>: <%= p.created_at %>, <%= p.likes %> likes</li>
+    <% end %>
+    </ul>
+<% else %>
+    <h3>No recent posts</h3>
+<% end %>
+
+<% if @featured %>
+    <p>Featured post: <%= link_to @featured.title, post_path(@featured) %></p>
+<% end %>

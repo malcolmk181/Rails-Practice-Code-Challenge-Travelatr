@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+<p style="color: green;"><%= flash[:notice] %></p>
+<% end %>
+
+<h1><%= @blogger.name %></h1>
+<h3>Total likes: <%= @blogger.posts.map(&:likes).sum %></h3>
+<% if @featured %>
+    <p>Featured Post: <%= link_to @featured.title, post_path(@featured) %> <em>(<%= @featured.likes %> likes)</em></p>
+<% end %>
+<p><%= @blogger.bio %></p>
